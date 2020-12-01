@@ -1,4 +1,4 @@
-## gitlab-db
+## gitlab-repo-db
 
 基于Gitlab 仓库文件存储的数据库
 
