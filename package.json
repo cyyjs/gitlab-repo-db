@@ -1,15 +1,23 @@
 {
   "name": "gitlab-repo-db",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A database based on gitlab files",
   "main": "./lib/index.js",
   "license": "MIT",
+  "author": {
+    "name": "cyyjs",
+    "email": "cyy0418@qq.com"
+  },
   "scripts": {
     "build": "yarn lint && rollup -c",
     "lint": "eslint src --ext .ts --fix",
     "test": "jest"
   },
-  "homepage": "",
+  "homepage": "https://github.com/cyyjs/gitlab-repo-db",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:cyyjs/gitlab-repo-db.git"
+  },
   "types": "./lib/index.d.ts",
   "files": [
     "lib"

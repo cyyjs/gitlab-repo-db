@@ -3,7 +3,7 @@
  * @Date: 2020-12-01 13:43:00
  * @LastEditors: cyy
  * @LastEditTime: 2020-12-01 17:08:54
- * @Description: 
+ * @Description:
  */
 
 import GitlabApi from 'gitlab-api-v4'

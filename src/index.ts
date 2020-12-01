@@ -22,5 +22,3 @@ class GitlibDB {
 }
 
 export default GitlibDB
- 
- 
