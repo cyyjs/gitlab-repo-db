@@ -1,0 +1,53 @@
+{
+  "name": "gitlab-repo-db",
+  "version": "0.1.0",
+  "description": "A database based on gitlab files",
+  "main": "./lib/index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "yarn lint && rollup -c",
+    "lint": "eslint src --ext .ts --fix",
+    "test": "jest"
+  },
+  "homepage": "",
+  "types": "./lib/index.d.ts",
+  "files": [
+    "lib"
+  ],
+  "keywords": [
+    "gitlab",
+    "repo",
+    "db",
+    "mongodb"
+  ],
+  "dependencies": {
+    "gitlab-api-v4": "^0.1.3",
+    "mingo": "^3.1.0",
+    "uuid": "^8.3.1"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^16.0.0",
+    "@rollup/plugin-node-resolve": "^10.0.0",
+    "@types/jest": "^26.0.14",
+    "@types/node": "^14.11.10",
+    "@types/uuid": "^8.3.0",
+    "@typescript-eslint/eslint-plugin": "^4.4.1",
+    "@typescript-eslint/parser": "^4.4.1",
+    "eslint": "^7.11.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "jest": "^26.5.3",
+    "rollup": "^2.32.1",
+    "rollup-plugin-clear": "^2.0.7",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.28.0",
+    "ts-jest": "^26.4.1",
+    "typescript": "^4.0.3"
+  },
+  "engines": {
+    "node": ">=10.0.0"
+  }
+}
