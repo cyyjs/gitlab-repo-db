@@ -17,7 +17,9 @@ const DB = new GitlabDB({
   token: 'your gitlab token'
 })
 
-const collection = DB.collection('test')
+// dbName存储文件的路径，支持 a/b/c写法
+const dbName = 'test'
+const collection = DB.collection(dbName)
 
 
 const query = {

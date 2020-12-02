@@ -3,14 +3,14 @@ import config from './config';
 const gitlab = new Gitlab(config)
 
 describe('gitlab is ok', () => {
-  test('get file', () => {
-    gitlab.getFileContent('a').then(res => {
-      expect(res).toBe('a')
+  test.skip('get file', () => {
+    gitlab.getFileContent('f/a').then(res => {
+      expect(res).toBeInstanceOf(Array)
     })
   })
 
   test('write file', () => {
-    gitlab.writeFileContent('b', 'a').then(res => {
+    gitlab.writeFileContent('a/b', 'a').then(res => {
       expect(res.file_path).toBeDefined()
     })
   })

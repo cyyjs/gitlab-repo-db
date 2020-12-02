@@ -2,7 +2,7 @@
  * @Author: cyy
  * @Date: 2020-12-01 13:43:00
  * @LastEditors: cyy
- * @LastEditTime: 2020-12-01 17:08:54
+ * @LastEditTime: 2020-12-02 12:25:11
  * @Description:
  */
 
@@ -23,7 +23,7 @@ export default class Gitlab {
   createFile (dbName: string, content: string) {
     return this.gitLabApi.repositoryFile.create({
       id: this.options.projectID,
-      file_path: dbName + '.json',
+      file_path: encodeURIComponent(dbName) + '.json',
       branch: 'master',
       commit_message: 'create file',
       content
@@ -33,7 +33,7 @@ export default class Gitlab {
   async getFileContent (dbName:string) {
     const res = await this.gitLabApi.repositoryFile.get({
       id: this.options.projectID,
-      file_path: dbName + '.json',
+      file_path: encodeURIComponent(dbName) + '.json',
       ref: 'master'
     })
     if (res.content) {
@@ -43,7 +43,9 @@ export default class Gitlab {
       } catch (e) {
         return []
       }
-    } else if (res.message && res.message.startsWith('404')) {
+    }
+    const message = res.message || res.error
+    if (message.startsWith('404')) {
       await this.createFile(dbName, '[]')
       return []
     }
@@ -58,7 +60,8 @@ export default class Gitlab {
       commit_message: 'update file',
       content
     })
-    if (res.message && res.message.includes('doesn\'t exist')) {
+    const message = res.message || res.error
+    if (message.includes('doesn\'t exist') || message.startsWith('404')) {
       res = await this.createFile(dbName, content)
     }
     return res
