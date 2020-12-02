@@ -2,7 +2,7 @@
  * @Author: cyy
  * @Date: 2020-12-01 13:29:10
  * @LastEditors: cyy
- * @LastEditTime: 2020-12-01 18:27:42
+ * @LastEditTime: 2020-12-02 13:04:24
  * @Description: collection
  */
 import GitLab from './gitlab'

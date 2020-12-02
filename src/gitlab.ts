@@ -2,7 +2,7 @@
  * @Author: cyy
  * @Date: 2020-12-01 13:43:00
  * @LastEditors: cyy
- * @LastEditTime: 2020-12-02 12:25:11
+ * @LastEditTime: 2020-12-02 13:05:07
  * @Description:
  */
 
@@ -55,7 +55,7 @@ export default class Gitlab {
   async writeFileContent (dbName: string, content: string) {
     let res = await this.gitLabApi.repositoryFile.update({
       id: this.options.projectID,
-      file_path: dbName + '.json',
+      file_path: encodeURIComponent(dbName) + '.json',
       branch: 'master',
       commit_message: 'update file',
       content
