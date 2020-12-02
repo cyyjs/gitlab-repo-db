@@ -2,7 +2,7 @@
  * @Author: cyy
  * @Date: 2020-12-01 13:43:00
  * @LastEditors: cyy
- * @LastEditTime: 2020-12-02 13:05:07
+ * @LastEditTime: 2020-12-02 13:09:38
  * @Description:
  */
 
@@ -45,7 +45,7 @@ export default class Gitlab {
       }
     }
     const message = res.message || res.error
-    if (message.startsWith('404')) {
+    if (message && message.startsWith('404')) {
       await this.createFile(dbName, '[]')
       return []
     }
@@ -61,7 +61,7 @@ export default class Gitlab {
       content
     })
     const message = res.message || res.error
-    if (message.includes('doesn\'t exist') || message.startsWith('404')) {
+    if (message && (message.includes('doesn\'t exist') || message.startsWith('404'))) {
       res = await this.createFile(dbName, content)
     }
     return res
